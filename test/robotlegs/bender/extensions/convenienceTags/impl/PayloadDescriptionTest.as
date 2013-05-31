@@ -5,22 +5,23 @@
 //  in accordance with the terms of the license agreement accompanying it.
 //------------------------------------------------------------------------------
 
-package robotlegs.bender.extensions.convenienceTags
+package robotlegs.bender.extensions.convenienceTags.impl
 {
 	import org.hamcrest.assertThat;
+	import org.hamcrest.collection.array;
+	import org.hamcrest.object.equalTo;
 	import org.hamcrest.object.instanceOf;
-	import robotlegs.bender.extensions.convenienceTags.impl.PayloadEventCommandMap;
-	import robotlegs.bender.extensions.eventCommandMap.api.IEventCommandMap;
-	import robotlegs.bender.framework.impl.Context;
 
-	public class PayloadTagExtensionTest
+	import robotlegs.bender.extensions.convenienceTags.api.IPayloadExtractionPoint;
+
+	public class PayloadDescriptionTest
 	{
 
 		/*============================================================================*/
 		/* Private Properties                                                         */
 		/*============================================================================*/
 
-		private var context:Context;
+		private var subject:PayloadDescription;
 
 		/*============================================================================*/
 		/* Test Setup and Teardown                                                    */
@@ -29,20 +30,29 @@ package robotlegs.bender.extensions.convenienceTags
 		[Before]
 		public function before():void
 		{
-			context = new Context();
+			subject = new PayloadDescription();
 		}
 
 		/*============================================================================*/
 		/* Tests                                                                      */
 		/*============================================================================*/
 
-		[Test(async)]
-		public function maps_PayloadEventCommandMap_as_EventCommandMap():void
+		[Test]
+		public function extractionPoints_defaults_to_empty_vector():void
 		{
-			context.install(PayloadTagExtension);
-			context.afterInitializing(function():void{
-				assertThat(context.injector.getInstance(IEventCommandMap), instanceOf(PayloadEventCommandMap));
-			});
+			assertThat(subject.extractionPoints.length, equalTo(0));
+		}
+
+		[Test]
+		public function sorts_extraction_points_by_ordinal() : void{
+			const point1: IPayloadExtractionPoint = new FieldPayloadExtractionPoint('1',int,1);
+			const point2: IPayloadExtractionPoint = new FieldPayloadExtractionPoint('2',int,2);
+			const point3: IPayloadExtractionPoint = new FieldPayloadExtractionPoint('3',int,3);
+			subject.addExtractionPoint(point2);
+			subject.addExtractionPoint(point3);
+			subject.addExtractionPoint(point1);
+			subject.sortPoints();
+			assertThat(subject.extractionPoints, array(point1, point2, point3));
 		}
 	}
 }

@@ -10,12 +10,13 @@ package robotlegs.bender.extensions.convenienceTags
 	import org.swiftsuspenders.Injector;
 
 	import robotlegs.bender.extensions.convenienceTags.impl.ExecuteMethodConfigurator;
+	import robotlegs.bender.extensions.convenienceTags.impl.PayloadEventCommandMap;
 	import robotlegs.bender.extensions.directCommandMap.api.IDirectCommandMap;
 	import robotlegs.bender.extensions.eventCommandMap.api.IEventCommandMap;
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.IExtension;
 
-	public class ExecuteTagExtension implements IExtension
+	public class ConvenienceTagsExtension implements IExtension
 	{
 
 		/*============================================================================*/
@@ -34,13 +35,19 @@ package robotlegs.bender.extensions.convenienceTags
 		{
 			_injector = context.injector;
 			_configurator = new ExecuteMethodConfigurator();
-			_injector.hasMapping(IDirectCommandMap) && addProcessingToDirectCommandMap();
-			_injector.hasMapping(IEventCommandMap) && addProcessingToEventCommandMap();
+			_injector.map(IEventCommandMap).toType(PayloadEventCommandMap);
+			context.beforeInitializing(beforeInitializing);
 		}
 
 		/*============================================================================*/
 		/* Private Functions                                                          */
 		/*============================================================================*/
+
+		private function beforeInitializing():void
+		{
+			_injector.hasMapping(IDirectCommandMap) && addProcessingToDirectCommandMap();
+			_injector.hasMapping(IEventCommandMap) && addProcessingToEventCommandMap();
+		}
 
 		private function addProcessingToEventCommandMap():void
 		{

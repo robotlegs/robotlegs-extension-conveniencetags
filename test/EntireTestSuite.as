@@ -7,8 +7,7 @@
 
 package
 {
-	import robotlegs.bender.extensions.convenienceTags.ExecuteTagExtensionTestSuite;
-	import robotlegs.bender.extensions.convenienceTags.PayloadTagExtensionTestSuite;
+	import robotlegs.bender.extensions.convenienceTags.ConvenienceTagsExtensionTestSuite;
 
 	[RunWith("org.flexunit.runners.Suite")]
 	[Suite]
@@ -19,8 +18,6 @@ package
 		/* Public Properties                                                          */
 		/*============================================================================*/
 
-		public var executeTagExtensionTestSuite:ExecuteTagExtensionTestSuite;
-
-		public var payloadTagExtensionTestSuite:PayloadTagExtensionTestSuite;
+		public var executeTagExtensionTestSuite:ConvenienceTagsExtensionTestSuite;
 	}
 }
