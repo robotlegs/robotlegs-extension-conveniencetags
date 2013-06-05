@@ -9,7 +9,7 @@ package robotlegs.bender.extensions.convenienceTags.impl
 {
 	import flash.utils.describeType;
 	import flash.utils.getDefinitionByName;
-	import robotlegs.bender.extensions.commandCenter.impl.CommandPayload;
+	import robotlegs.bender.extensions.commandCenter.api.CommandPayload;
 	import robotlegs.bender.extensions.convenienceTags.api.IPayloadExtractionPoint;
 	import robotlegs.bender.extensions.convenienceTags.api.PayloadCollectorError;
 

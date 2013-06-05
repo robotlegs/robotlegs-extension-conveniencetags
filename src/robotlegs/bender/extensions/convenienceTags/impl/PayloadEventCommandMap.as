@@ -8,12 +8,12 @@
 package robotlegs.bender.extensions.convenienceTags.impl
 {
 	import flash.events.IEventDispatcher;
-	import org.swiftsuspenders.Injector;
 	import robotlegs.bender.extensions.commandCenter.dsl.ICommandMapper;
 	import robotlegs.bender.extensions.commandCenter.dsl.ICommandUnmapper;
 	import robotlegs.bender.extensions.commandCenter.impl.CommandTriggerMap;
 	import robotlegs.bender.extensions.eventCommandMap.api.IEventCommandMap;
 	import robotlegs.bender.framework.api.IContext;
+	import robotlegs.bender.framework.api.IInjector;
 	import robotlegs.bender.framework.api.ILogger;
 
 	public class PayloadEventCommandMap implements IEventCommandMap
@@ -25,7 +25,7 @@ package robotlegs.bender.extensions.convenienceTags.impl
 
 		private const _mappingProcessors:Array = [];
 
-		private var _injector:Injector;
+		private var _injector:IInjector;
 
 		private var _dispatcher:IEventDispatcher;
 

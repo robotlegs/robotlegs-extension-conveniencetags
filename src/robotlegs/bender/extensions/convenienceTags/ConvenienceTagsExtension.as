@@ -7,14 +7,13 @@
 
 package robotlegs.bender.extensions.convenienceTags
 {
-	import org.swiftsuspenders.Injector;
-
 	import robotlegs.bender.extensions.convenienceTags.impl.ExecuteMethodConfigurator;
 	import robotlegs.bender.extensions.convenienceTags.impl.PayloadEventCommandMap;
 	import robotlegs.bender.extensions.directCommandMap.api.IDirectCommandMap;
 	import robotlegs.bender.extensions.eventCommandMap.api.IEventCommandMap;
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.IExtension;
+	import robotlegs.bender.framework.api.IInjector;
 
 	public class ConvenienceTagsExtension implements IExtension
 	{
@@ -25,7 +24,7 @@ package robotlegs.bender.extensions.convenienceTags
 
 		private var _configurator:ExecuteMethodConfigurator;
 
-		private var _injector:Injector;
+		private var _injector:IInjector;
 
 		/*============================================================================*/
 		/* Public Functions                                                           */

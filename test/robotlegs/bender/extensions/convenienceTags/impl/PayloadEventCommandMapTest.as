@@ -15,7 +15,6 @@ package robotlegs.bender.extensions.convenienceTags.impl
 	import org.hamcrest.core.not;
 	import org.hamcrest.object.equalTo;
 	import org.hamcrest.object.instanceOf;
-	import org.swiftsuspenders.Injector;
 	import robotlegs.bender.extensions.commandCenter.api.ICommandMapping;
 	import robotlegs.bender.extensions.commandCenter.dsl.ICommandMapper;
 	import robotlegs.bender.extensions.commandCenter.dsl.ICommandUnmapper;
@@ -37,6 +36,7 @@ package robotlegs.bender.extensions.convenienceTags.impl
 	import robotlegs.bender.extensions.eventCommandMap.support.EventInjectedCallbackGuard;
 	import robotlegs.bender.extensions.eventCommandMap.support.SupportEvent;
 	import robotlegs.bender.framework.api.IContext;
+	import robotlegs.bender.framework.api.IInjector;
 	import robotlegs.bender.framework.impl.Context;
 	import robotlegs.bender.framework.impl.guardSupport.GrumpyGuard;
 	import robotlegs.bender.framework.impl.guardSupport.HappyGuard;
@@ -54,7 +54,7 @@ package robotlegs.bender.extensions.convenienceTags.impl
 
 		private var reported:Array;
 
-		private var injector:Injector;
+		private var injector:IInjector;
 
 		private var dispatcher:IEventDispatcher;
 

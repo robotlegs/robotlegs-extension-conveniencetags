@@ -11,15 +11,14 @@ package robotlegs.bender.extensions.convenienceTags.impl
 	import org.hamcrest.collection.array;
 	import org.hamcrest.object.equalTo;
 	import org.hamcrest.object.instanceOf;
-
+	import robotlegs.bender.extensions.commandCenter.api.CommandPayload;
 	import robotlegs.bender.extensions.convenienceTags.api.IPayloadExtractionPoint;
 	import robotlegs.bender.extensions.convenienceTags.support.ExtractableGetterObject;
 	import robotlegs.bender.extensions.convenienceTags.support.ExtractableMethodObject;
 	import robotlegs.bender.extensions.convenienceTags.support.ExtractablePropertyObject;
 	import robotlegs.bender.extensions.convenienceTags.support.IPayload;
-	import robotlegs.bender.extensions.convenienceTags.support.PayloadCarrierObject;
 	import robotlegs.bender.extensions.convenienceTags.support.OrderedExtractionPointsEvent;
-	import robotlegs.bender.extensions.commandCenter.impl.CommandPayload;
+	import robotlegs.bender.extensions.convenienceTags.support.PayloadCarrierObject;
 
 	public class PayloadCollectorTest
 	{

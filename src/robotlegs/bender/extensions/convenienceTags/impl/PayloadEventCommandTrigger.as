@@ -9,14 +9,14 @@ package robotlegs.bender.extensions.convenienceTags.impl
 {
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
-	import org.swiftsuspenders.Injector;
+	import robotlegs.bender.extensions.commandCenter.api.CommandPayload;
 	import robotlegs.bender.extensions.commandCenter.api.ICommandExecutor;
 	import robotlegs.bender.extensions.commandCenter.api.ICommandMappingList;
 	import robotlegs.bender.extensions.commandCenter.api.ICommandTrigger;
 	import robotlegs.bender.extensions.commandCenter.impl.CommandExecutor;
 	import robotlegs.bender.extensions.commandCenter.impl.CommandMapper;
 	import robotlegs.bender.extensions.commandCenter.impl.CommandMappingList;
-	import robotlegs.bender.extensions.commandCenter.impl.CommandPayload;
+	import robotlegs.bender.framework.api.IInjector;
 	import robotlegs.bender.framework.api.ILogger;
 
 	public class PayloadEventCommandTrigger implements ICommandTrigger
@@ -46,7 +46,7 @@ package robotlegs.bender.extensions.convenienceTags.impl
 		 * @private
 		 */
 		public function PayloadEventCommandTrigger(
-			injector:Injector,
+			injector:IInjector,
 			dispatcher:IEventDispatcher,
 			type:String,
 			eventClass:Class = null,
