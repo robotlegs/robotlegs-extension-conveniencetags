@@ -99,4 +99,12 @@ This extension requires no other extensions, but will plug into the Event Comman
     _context = new Context()
     	.install(ConvenienceTagsExtension);
 
-This extension requires no configuration.
+## Compiler arguments
+
+By default the compiler strips all metadata tags it doesn't know when creating a release build, 
+you need to add these compiler arguments to prevent this from happening with the `[Execute]` and `[Payload]` tags:
+
+```shell
+-keep-as3-metadata+=Execute
+-keep-as3-metadata+=Payload
+```
