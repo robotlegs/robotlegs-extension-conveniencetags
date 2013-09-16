@@ -34,6 +34,7 @@ package robotlegs.bender.extensions.convenienceTags
 		{
 			_injector = context.injector;
 			_configurator = new ExecuteMethodConfigurator();
+			if (_injector.hasMapping(IEventCommandMap)) _injector.unmap(IEventCommandMap);
 			_injector.map(IEventCommandMap).toType(PayloadEventCommandMap);
 			context.beforeInitializing(beforeInitializing);
 		}
